@@ -2,6 +2,7 @@ import TourInfos from "../models/tours";
 class TourController{
     //create tour in db
     static async createTour(req,res){
+        req.body.user= req.user._id;
         const tour= await TourInfos.create(req.body); // return generated data
         if(!tour){
             return res.status(404).json({error:"tour not registered"})
