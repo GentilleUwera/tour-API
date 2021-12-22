@@ -37,7 +37,7 @@ class UserController{
         }
         return res
            .status(200)
-           .json({message: "user not found successfully", data:user})
+           .json({message: "user found successfully", data:user})
            
     }
 

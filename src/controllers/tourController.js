@@ -31,7 +31,7 @@ class TourController{
         }
         return res
            .status(200)
-           .json({message: "tour not found successfully", data:tour})
+           .json({message: "tour found successfully", data:tour})
            
     }
 
