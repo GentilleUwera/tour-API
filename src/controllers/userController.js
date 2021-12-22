@@ -1,5 +1,6 @@
 import UserInfos from "../models/user";
 import bcrypt from "bcrypt";
+import TokenAuth from "../helpers/tokenAuth";
 
 class UserController{
     //create user in db
@@ -36,7 +37,7 @@ class UserController{
         }
         return res
            .status(200)
-           .json({message: "user not found successfully", data:user})
+           .json({message: "user found successfully", data:user})
            
     }
 
@@ -64,7 +65,8 @@ class UserController{
       }
 
       if(bcrypt.compareSync(req.body.password,user.password)) {
-        return res.status(200).json({ message: "successfully logged in"});
+          const token = TokenAuth.tokenGenerator({user:user});
+        return res.status(200).json({ message: "successfully logged in", token: token });
       }
 
     return res.status(400).json({ error: "password is wrong" });
