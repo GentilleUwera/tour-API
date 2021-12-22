@@ -4,6 +4,7 @@
   "description": "\"this platform is for booking tours\"",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./index.js",
     "dev-start": "nodemon --exec babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
